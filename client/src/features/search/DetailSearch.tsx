@@ -1,19 +1,18 @@
-import { useState } from 'react';
-import { IDetailObject } from '../../types/detailobject';
 import { DetailCard } from './DetailCard';
-import { createDetail } from '../../data/boilerplate';
+import './detailcard.css';
+import { useDetailStore } from '../../store';
 
 interface IDetailSearchProps {
-	objects: IDetailObject[];
+	style?: React.CSSProperties;
 }
 
-export const DetailSearch: React.FC<IDetailSearchProps> = ({ objects }) => {
-	const [details] = useState<IDetailObject[]>([...Array(10)].map(() => createDetail()));
+export const DetailSearch: React.FC<IDetailSearchProps> = ({ style }) => {
+	const { state, reducers } = useDetailStore();
 
 	return (
-		<div>
-			{details.map((object, index) => (
-				<DetailCard key={index} object={object} />
+		<div className='detail-cards' style={style}>
+			{state.allDetails.map((object, index) => (
+				<DetailCard key={index} object={object} onClick={() => reducers.setSelectedDetail(object.id)} />
 			))}
 		</div>
 	);
