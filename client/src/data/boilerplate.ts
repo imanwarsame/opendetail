@@ -1,5 +1,6 @@
 import { DetailTopologyCategory } from '../enums/detailcategories';
 import { IDetailObject } from '../types/detailobject';
+import { IDetailMetaData } from '../types/metadata';
 
 const getRandomUUID = (): string => {
 	const validChars = '0123456789abcdef';
@@ -10,6 +11,19 @@ const getRandomUUID = (): string => {
 	return `${s(7)}-${s(4)}-${M[Math.floor(Math.random() * M.length)]}${s(3)}-${N[Math.floor(Math.random() * N.length)]}${s(3)}-${s(12)}`;
 };
 
+export const createMetaData = (): IDetailMetaData => ({
+	fireRating: 'good',
+	rValue: 1.71,
+	acousticPerformance: 0.5,
+	globalWarmingPotential: 50,
+	voc: ['VOC1', 'VOC2'],
+	location: 'Finland',
+	cost: 1,
+	biogenicRating: 0.99,
+	populartity: 100,
+	dateAdded: new Date()
+});
+
 export const createDetail = (): IDetailObject => {
 	const localDetail: IDetailObject = {
 		id: getRandomUUID(),
@@ -18,7 +32,8 @@ export const createDetail = (): IDetailObject => {
 		name: 'I am Boilerplate',
 		description: 'Lorum Ipsum Dolor Sit Amet',
 		topologyCategory: DetailTopologyCategory.Point,
-		elements: []
+		elements: [],
+		metadata: createMetaData()
 	};
 
 	return localDetail;
