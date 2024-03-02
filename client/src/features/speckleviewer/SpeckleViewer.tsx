@@ -71,7 +71,7 @@ class SpeckleViewer extends Component<SpeckleViewerInputs> {
 
 			//Check if you have clicked on an object
 			if (selectionInfo !== null) {
-				const clickedObj = selectionInfo.hits[0].node.model.raw;
+				const clickedObj = selectionInfo.hits[0].node.model.raw; //TODO: We can add this to a pop up modal if we have time
 				this.setState({ selectedObj: clickedObj });
 				console.log(clickedObj);
 
