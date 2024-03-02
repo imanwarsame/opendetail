@@ -6,5 +6,4 @@ export interface IBuildupPart {
     materialCategory: MaterialCategory;
     thickness: number;
     elementRole : ElementRole;
-  
 }
