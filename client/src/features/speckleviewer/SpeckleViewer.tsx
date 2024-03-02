@@ -17,6 +17,10 @@ interface SpeckleViewerInputs {
 class SpeckleViewer extends Component<SpeckleViewerInputs> {
 	constructor(props: SpeckleViewerInputs) {
 		super(props);
+		// Initialise the property in the constructor
+		this.state = {
+			viewer: null // Assuming viewer is of type Viewer or any
+		};
 	}
 
 	async componentDidMount() {
@@ -34,7 +38,8 @@ class SpeckleViewer extends Component<SpeckleViewerInputs> {
 		params.verbose = false;
 
 		/** Create Viewer instance */
-		const viewer = new Viewer(container, params);
+		const viewer: Viewer = new Viewer(container, params);
+		this.setState({ viewer });
 
 		/** Initialise the viewer */
 		await viewer.init();
@@ -92,6 +97,11 @@ class SpeckleViewer extends Component<SpeckleViewerInputs> {
 
 		/** Load the speckle data */
 		await viewer.loadObject(loader, true);
+
+		//Save screenshot to local storage
+		const screenShot = await viewer.screenshot();
+		const uriJson = JSON.stringify(screenShot); //Convert the URI to JSON string
+		localStorage.setItem('currentDetailScreenshot', uriJson);
 	}
 
 	render() {
