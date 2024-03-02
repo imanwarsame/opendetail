@@ -1,4 +1,11 @@
-import { Viewer, DefaultViewerParams, SpeckleLoader } from '@speckle/viewer';
+import {
+	Viewer,
+	DefaultViewerParams,
+	SpeckleLoader,
+	ViewerEvent,
+	SelectionEvent,
+	FilteringExtension
+} from '@speckle/viewer';
 import { CameraController, SelectionExtension } from '@speckle/viewer';
 import { Component } from 'react';
 
@@ -52,6 +59,29 @@ class SpeckleViewer extends Component<SpeckleViewerInputs> {
 
 		/** Add the selection extension for extra interactivity */
 		viewer.createExtension(SelectionExtension);
+
+		/** Add the filtering extension for further controls */
+		const filterController = viewer.createExtension(FilteringExtension);
+
+		//Gets selected object information
+		viewer.on(ViewerEvent.ObjectClicked, (selectionInfo: SelectionEvent) => {
+			//Selection event contains the entire hit chain
+			//First hit is the closest one and generally the one you need
+			//Hits contain the node and the hit point
+
+			//Check if you have clicked on an object
+			if (selectionInfo !== null) {
+				const clickedObj = selectionInfo.hits[0].node.model.raw;
+				this.setState({ selectedObj: clickedObj });
+				console.log(clickedObj);
+
+				filterController.resetFilters();
+				filterController.isolateObjects([clickedObj.id]); //Ghosts objects that are not selected
+			} else {
+				this.setState({ selectedObj: null }); //Reset state, this will hide selected item details
+				filterController.resetFilters(); //Reset ghosting
+			}
+		});
 
 		/** Create a loader for the speckle stream */
 		const loader = new SpeckleLoader(
