@@ -27,6 +27,12 @@ namespace OpenDetailAPI.Services
 
         #region Methods
 
+        public async Task CreateAsync(DetailsModel detail)
+        {
+            await _detailsCollection.InsertOneAsync(detail);
+            return;
+        }
+
         public async Task<List<DetailsModel>> GetAsync()
         {
             return await _detailsCollection.Find(new BsonDocument()).ToListAsync();
