@@ -29,7 +29,9 @@ namespace OpenDetailAPI.Services
 
         public async Task<List<DetailsModel>> GetAsync()
         {
-            return await _detailsCollection.Find(new BsonDocument()).ToListAsync();
+            //return await _detailsCollection.Find(new BsonDocument()).ToListAsync();
+            List<DetailsModel> documents = await _detailsCollection.Find(_ => true).ToListAsync();
+            return documents;
         }
 
         #endregion
