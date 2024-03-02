@@ -5,4 +5,5 @@ export enum MaterialCategory {
   Gipsum = 'Gipsum',
 }
 
+// Use Oekobaudat.de standards.
 export enum MineralBuildingProducts {}
