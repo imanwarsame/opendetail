@@ -44,7 +44,8 @@ namespace OpenDetailAPI.Controllers
         [HttpGet]
         public async Task<List<DetailsModel>> Get()
         {
-            return await _DBService.GetAsync();
+            List<DetailsModel> models = await _DBService.GetAsync();
+            return models;
         }
 
         #endregion

@@ -15,33 +15,33 @@ namespace OpenDetailAPI.Models
         /// </summary>
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public string? Id { get; set; }
+        public ObjectId? _id { get; set; }
 
         /// <summary>
         /// Speckle URL
         /// </summary>
-        public string Name { get; set; } = null!;
+        public string? Name { get; set; }
 
         /// <summary>
         /// Speckle URL
         /// </summary>
-        public string URL { get; set; } = null!;
+        public string? URL { get; set; }
 
         /// <summary>
         /// Speckle URL
         /// </summary>
-        public string Category { get; set; } = null!;
+        public string? Category { get; set; }
 
         /// <summary>
         /// Speckle URL
         /// </summary>
-        public string Author { get; set; } = null!;
+        public string? Author { get; set; }
 
-        /// <summary>
-        /// Metadata
-        /// </summary>
-        [BsonExtraElements]
-        public Dictionary<string, object> Metadata { get; set; } = new Dictionary<string, object>();
+        ///// <summary>
+        ///// Metadata
+        ///// </summary>
+        //[BsonExtraElements]
+        //public Dictionary<string, object> Metadata { get; set; } = new Dictionary<string, object>();
 
         #endregion
     }

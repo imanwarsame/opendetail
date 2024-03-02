@@ -33,7 +33,7 @@ namespace OpenDetailAPI.Services
         /// </summary>
         /// <param name="databaseName"></param>
         /// <returns></returns>
-        public IMongoDatabase GetDatabase(string databaseName = "details")
+        public IMongoDatabase GetDatabase(string databaseName = "opendetail")
         {
             return _client.GetDatabase(databaseName);
         }
