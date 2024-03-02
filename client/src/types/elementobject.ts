@@ -1,5 +1,9 @@
+
+import { IBuildupPart } from './buildupart';
+import { IDetailPart } from './detailpart';
+
+
 export interface IElementObject {
-  index: number;
-  materialCategory: string;
-  thickness: number;
+  BuildupParts: IBuildupPart[];
+  DetailParts : IDetailPart[];
 }
