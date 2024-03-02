@@ -14,7 +14,7 @@ function App() {
 					<Navbar />
 					<section className='main-content'>
 						<Routes>
-							<Route element={<DetailSearch objects={[]} />} path='/' />
+							<Route element={<DetailSearch />} path='/' />
 							<Route element={<ViewerPage />} path='/projects/:projectId' />
 							<Route element={<CompositeSearch />} path='/compositeSearch/:projectId' />
 						</Routes>
