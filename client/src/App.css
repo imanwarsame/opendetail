@@ -40,3 +40,12 @@
 .read-the-docs {
   color: #888;
 }
+
+.main-content {
+  position: absolute;
+  top: 60px;
+  height: calc(100vh - 60px);
+  left: 0;
+  right: 0;
+  overflow: default;
+}
