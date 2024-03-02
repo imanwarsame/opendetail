@@ -11,7 +11,7 @@ export const ViewerPage = () => {
 	return (
 		<>
 			<Viewer object={createDetail()} />
-			<SpeckleViewer url='https://latest.speckle.systems/projects/8cc01e745f/models/23eb4454e8#embed=%7B%22isEnabled%22%3Atrue%7D' />
+			<SpeckleViewer streamID='8cc01e745f' baseObjectID='26b5287a21b1355384960033c3de9c53' />
 		</>
 	);
 };
