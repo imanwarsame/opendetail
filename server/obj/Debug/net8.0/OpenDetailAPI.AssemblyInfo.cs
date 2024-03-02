@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OpenDetailAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+04ed961dbf86edde7e7e8662851358854d6589f3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+719b35e2d0187f3dddb62472d7912423197a2877")]
 [assembly: System.Reflection.AssemblyProductAttribute("OpenDetailAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OpenDetailAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

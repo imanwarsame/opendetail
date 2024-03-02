@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "I0332J9rAGidDYDEqt7VEAijKH97SarIUZ1w0g+xBdCy8fr/6ZbykwykzASIZLh0OipXQYcXJsbYjYH87u0FdA==",
+  "dgSpecHash": "PPV3hWHDWYpRBYkT5j3odXC73KSW1A7aJzqqQe58Kgc0olDz1B/z0woCnGsnytCY6k9q4VArNvAIje+rMtR+CA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\IWARS\\source\\repos\\opendetail\\server\\OpenDetailAPI\\OpenDetailAPI.csproj",
+  "projectFilePath": "C:\\Users\\IWARS\\source\\repos\\opendetail\\server\\OpenDetailAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\IWARS\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\IWARS\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
