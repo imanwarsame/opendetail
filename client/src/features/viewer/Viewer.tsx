@@ -1,10 +1,14 @@
-import { useParams } from 'react-router-dom';
-import { DetailCard } from '../search/DetailCard';
-import { createDetail } from '../../data/boilerplate';
+import { IDetailObject } from '../../types/detailobject';
 
-export const Viewer = () => {
-	const { projectId } = useParams();
+interface IViewerProps {
+	object?: IDetailObject;
+}
 
-	return <DetailCard object={createDetail()} />;
+export const Viewer: React.FC<IViewerProps> = ({ object }) => {
+	return object ? (
+		<div style={{ color: '#fff' }}>{object.id}</div>
+	) : (
+		<div style={{ color: '#fff' }}>No object selected</div>
+	);
 };
 
