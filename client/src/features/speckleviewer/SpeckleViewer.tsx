@@ -53,7 +53,7 @@ class SpeckleViewer extends Component<SpeckleViewerInputs> {
 		viewer.createExtension(SelectionExtension);
 
 		/** Create a loader for the speckle stream */
-		const loader = new SpeckleLoader(viewer.getWorldTree(), url, '');
+		const loader = new SpeckleLoader(viewer.getWorldTree(), url, '534eb89d07a092fcd8e3c07ceac4320a4bc1d5b301');
 		/** Load the speckle data */
 		await viewer.loadObject(loader, true);
 	}
