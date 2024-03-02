@@ -1,9 +1,7 @@
-
-import { IBuildupPart } from './buildupart';
-import { IDetailPart } from './detailpart';
-
+import { IBuildupPart } from './builduppart';
 
 export interface IElementObject {
-  BuildupParts: IBuildupPart[];
-  DetailParts : IDetailPart[];
+	BuildupParts: IBuildupPart[];
+
 }
+

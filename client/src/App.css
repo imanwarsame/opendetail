@@ -3,6 +3,8 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  font-weight: 400;
+  /* font-family: monospace; */
 }
 
 .logo {
@@ -45,7 +47,50 @@
   position: absolute;
   top: 60px;
   height: calc(100vh - 60px);
+  width: 100vw;
+  overflow: hidden;
   left: 0;
   right: 0;
   overflow: default;
+}
+
+@font-face {
+  font-family: Inter;
+  src: url(./assts/fonts/Inter-Medium.ttf);
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: Inter;
+  src: url(./assts/fonts/Inter-Regular.ttf);
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: SpaceMono;
+  src: url(./assts/fonts/SpaceMono-Regular.ttf);
+  font-weight: 400;
+  font-style: normal;
+}
+
+.html {
+  font-family: Inter, sans-serif;
+}
+
+h1 {
+  font-family: Inter, sans-serif;
+  font-size: 400;
+  font-size: 18px;
+}
+
+h2 {
+  font-family: SpaceMono, monospace;
+  font-size: 400;
+  font-size: 14px;
+}
+
+h3 {
+  font-family: Inter, sans-serif;
+  font-size: 500;
+  font-size: 12px;
 }

@@ -25,13 +25,14 @@
 
 .composite-search {
   transition: all 0.5s;
+  height: 100%;
+  overflow: auto;
 }
 
 .composite-search.viewer {
   position: absolute;
   right: 0;
   width: 580px;
-  height: 100%;
   background-color: #ffffff33;
 }
 
