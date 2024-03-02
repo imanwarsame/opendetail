@@ -47,7 +47,8 @@ class SpeckleViewer extends Component<SpeckleViewerInputs> {
 		// measurements.options = measurementsParams;
 
 		/** Add the stock camera controller extension */
-		viewer.createExtension(CameraController);
+		const cameraController = viewer.createExtension(CameraController);
+		cameraController.controls.maxPolarAngle = Math.PI; //Allows free orbit, will not be free with pi/2
 
 		/** Add the selection extension for extra interactivity */
 		viewer.createExtension(SelectionExtension);
