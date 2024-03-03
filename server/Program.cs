@@ -1,3 +1,5 @@
+using OpenDetailAPI.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,7 +9,23 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var app = builder.Build();
+#region Add database
+
+builder.Services.AddScoped<DBService>();
+
+#endregion
+
+#region Add services
+
+builder.Services.AddScoped(provider =>
+{
+    DBService dbService = provider.GetRequiredService<DBService>();
+    return new DetailsService(dbService.GetDatabase());
+});
+
+#endregion
+
+WebApplication app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

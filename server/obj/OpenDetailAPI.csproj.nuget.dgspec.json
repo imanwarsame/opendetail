@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\IWARS\\source\\repos\\opendetail\\server\\OpenDetailAPI\\OpenDetailAPI.csproj": {}
+    "C:\\Users\\IWARS\\source\\repos\\opendetail\\server\\OpenDetailAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\IWARS\\source\\repos\\opendetail\\server\\OpenDetailAPI\\OpenDetailAPI.csproj": {
+    "C:\\Users\\IWARS\\source\\repos\\opendetail\\server\\OpenDetailAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\IWARS\\source\\repos\\opendetail\\server\\OpenDetailAPI\\OpenDetailAPI.csproj",
+        "projectUniqueName": "C:\\Users\\IWARS\\source\\repos\\opendetail\\server\\OpenDetailAPI.csproj",
         "projectName": "OpenDetailAPI",
-        "projectPath": "C:\\Users\\IWARS\\source\\repos\\opendetail\\server\\OpenDetailAPI\\OpenDetailAPI.csproj",
+        "projectPath": "C:\\Users\\IWARS\\source\\repos\\opendetail\\server\\OpenDetailAPI.csproj",
         "packagesPath": "C:\\Users\\IWARS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\IWARS\\source\\repos\\opendetail\\server\\OpenDetailAPI\\obj\\",
+        "outputPath": "C:\\Users\\IWARS\\source\\repos\\opendetail\\server\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -44,9 +44,17 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "MongoDB.Bson": {
+              "target": "Package",
+              "version": "[2.24.0, )"
+            },
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[2.24.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.4.0, )"
+              "version": "[6.5.0, )"
             }
           },
           "imports": [
