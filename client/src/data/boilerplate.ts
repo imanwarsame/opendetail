@@ -1,4 +1,5 @@
 import { DetailTopologyCategory } from '../enums/detailcategories';
+import { Locations } from '../enums/locations';
 import { IDetailObject } from '../types/detailobject';
 import { IDetailMetaData } from '../types/metadata';
 import { constructionDetails } from './detailnames';
@@ -19,7 +20,7 @@ export const createMetaData = (): IDetailMetaData => ({
 	acousticPerformance: 0.5,
 	globalWarmingPotential: 50,
 	voc: ['VOC1', 'VOC2'],
-	location: 'Finland',
+	location: Object.values(Locations)[Math.floor(Math.random() * Object.values(Locations).length)],
 	cost: 1,
 	biogenicRating: 0.99,
 	populartity: 100,
