@@ -8,13 +8,16 @@ import {
 } from '@speckle/viewer';
 import { CameraController, SelectionExtension } from '@speckle/viewer';
 import { Component } from 'react';
+import './speckleviewer.css';
 
 interface SpeckleViewerInputs {
 	streamID: string;
 	baseObjectID: string;
 }
 
-class SpeckleViewer extends Component<SpeckleViewerInputs> {
+export const SPECKLE_RENDER_ID = 'speckle-renderer';
+
+export class SpeckleViewer extends Component<SpeckleViewerInputs> {
 	constructor(props: SpeckleViewerInputs) {
 		super(props);
 		// Initialise the property in the constructor
@@ -30,7 +33,7 @@ class SpeckleViewer extends Component<SpeckleViewerInputs> {
 		const speckleStreamURL = 'https://latest.speckle.systems/streams/' + streamID + '/objects/' + baseObjectID;
 
 		/** Get the HTML container */
-		const container = document.getElementById('renderer') as HTMLElement;
+		const container = document.getElementById(SPECKLE_RENDER_ID) as HTMLElement;
 
 		/** Configure the viewer params */
 		const params = DefaultViewerParams;
@@ -105,23 +108,9 @@ class SpeckleViewer extends Component<SpeckleViewerInputs> {
 	}
 
 	render() {
-		return (
-			<div
-				id='renderer'
-				style={{
-					border: '1px solid green',
-					height: '50vh',
-					width: '50vw',
-					position: 'fixed',
-					top: '50%',
-					left: '50%',
-					transform: 'translate(-50%, -50%)',
-					zIndex: 0,
-					overflow: 'hidden'
-				}}
-			></div>
-		);
+		return <div id={SPECKLE_RENDER_ID} className='speckle-viewer'></div>;
 	}
 }
 
 export default SpeckleViewer;
+
