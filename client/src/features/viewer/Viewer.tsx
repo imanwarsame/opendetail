@@ -41,9 +41,7 @@ export const Viewer: React.FC<IViewerProps> = ({ object }) => {
 						streamID={object.speckledata?.streamID as string}
 						baseObjectID={object.speckledata?.baseObjectID as string}
 					/>
-				) : (
-					<div id={SPECKLE_RENDER_ID} className='speckle-viewer-empty' />
-				)}
+				) : null}
 			</div>
 			<DetailCard object={object} />
 		</div>
