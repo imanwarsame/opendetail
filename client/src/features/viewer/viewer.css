@@ -39,6 +39,34 @@
 }
 
 .viewer-tab-container {
+  padding: 0px 5px;
   height: 100%;
   overflow: auto;
+}
+
+.property-card {
+  position: relative;
+  width: 225px;
+  border-radius: 8px;
+  background-color: #fff;
+  padding: 1px;
+  margin: 2px;
+  border: 1px solid #8a8a8a;
+  text-align: left;
+  cursor: pointer;
+}
+
+.property-card:hover {
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+  filter: brightness(0.92);
+}
+
+.property-cards {
+  display: flex;
+
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  gap: 1em;
 }

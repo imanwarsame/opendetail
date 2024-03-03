@@ -4,6 +4,7 @@ import { IDetailObject } from '../../types/detailobject';
 import { useDetailStore } from '../../store';
 import { DetailCard } from '../search/DetailCard';
 import { useNavigate } from 'react-router-dom';
+import { CardDetail } from './card-details';
 
 interface IViewerTabsProps {
 	object: IDetailObject;
@@ -23,7 +24,7 @@ export const ViewerTabs: React.FC<IViewerTabsProps> = ({ object }) => {
 		{
 			key: '1',
 			label: 'Metrics',
-			children: null as ReactNode
+			children: (<CardDetail object={object} />) as ReactNode
 		},
 		{
 			key: '2',
@@ -50,7 +51,7 @@ export const ViewerTabs: React.FC<IViewerTabsProps> = ({ object }) => {
 	];
 	return (
 		<div className='viewer-tab-container'>
-			<Tabs defaultActiveKey='1' tabPosition='top' items={items} onChange={onChange} />
+			<Tabs defaultActiveKey='1' tabPosition='top' items={items} />
 		</div>
 	);
 };
