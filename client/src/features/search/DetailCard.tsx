@@ -38,7 +38,7 @@ export const DetailCard: React.FC<IDetailCardProps> = ({ object, onClick }) => {
 					</div>
 				</div>
 			</div>
-			<span className='detail-card-inset-title'>{object.id}</span>
+			<span className='detail-card-inset-title'>{object.description}</span>
 			<div className='detail-card-title'>{object.name}</div>
 			<div className='detail-card-quantities'>
 				<div key='likes' className='detail-card-quantities-subobject'>
