@@ -37,7 +37,8 @@ export const createDetail = (): IDetailObject => {
 		detailParts: []
 	};
 
-	if (Math.random() > 0.5) localDetail.speckledata = { streamID: getRandomUUID(), baseObjectID: localDetail.id };
+	if (Math.random() > 0.5)
+		localDetail.speckledata = { streamID: '8cc01e745f', baseObjectID: '26b5287a21b1355384960033c3de9c53' };
 
 	return localDetail;
 };
