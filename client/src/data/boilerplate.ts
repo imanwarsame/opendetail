@@ -45,3 +45,16 @@ export const createDetail = (): IDetailObject => {
 	return localDetail;
 };
 
+export const createDetails = (count: number): IDetailObject[] => {
+	const details: IDetailObject[] = [];
+	for (let i = 0; i < count; i++) details.push(createDetail());
+
+	// linking some of them together
+	for (let i = 0; i < details.length; i++) {
+		const linkedDetails = details.filter((_, index) => Math.random() > 0.9 && index !== i);
+		details[i].metadata.alternativeObject = linkedDetails.map((d) => d.id);
+	}
+
+	return details;
+};
+
