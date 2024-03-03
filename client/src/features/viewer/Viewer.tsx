@@ -1,9 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { IDetailObject } from '../../types/detailobject';
 import { Switch } from 'antd';
 import React from 'react';
 import { SpeckleViewer } from '../speckleviewer/SpeckleViewer';
-import { DetailCard } from '../search/DetailCard';
 import './viewer.css';
 import { useDetailStore } from '../../store';
 import { PDFDownloadLink } from '@react-pdf/renderer';
@@ -23,6 +22,10 @@ export const Viewer: React.FC<IViewerProps> = ({ object }) => {
 	const clearSelectedDetail = () => {
 		reducers.setSelectedDetail(null);
 	};
+
+	useEffect(() => {
+		setIs2DView(Boolean(object?.speckledata));
+	}, [object]);
 
 	return object ? (
 		<div className='viewer'>
