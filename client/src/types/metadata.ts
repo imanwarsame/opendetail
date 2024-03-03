@@ -9,4 +9,6 @@ export interface IDetailMetaData {
 	biogenicRating?: number;
 	populartity?: number;
 	dateAdded?: Date;
+	alternativeObject?: string[];
 }
+
