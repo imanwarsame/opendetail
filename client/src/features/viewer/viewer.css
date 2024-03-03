@@ -7,3 +7,12 @@
   height: 500px;
   transition: all 0.3s;
 }
+
+.viewer-navbar {
+  width: 560px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}

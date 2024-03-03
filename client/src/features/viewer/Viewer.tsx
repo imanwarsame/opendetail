@@ -5,25 +5,36 @@ import React from 'react';
 import { SPECKLE_RENDER_ID, SpeckleViewer } from '../speckleviewer/SpeckleViewer';
 import { DetailCard } from '../search/DetailCard';
 import './viewer.css';
+import { useDetailStore } from '../../store';
 
 interface IViewerProps {
 	object?: IDetailObject;
 }
 
 export const Viewer: React.FC<IViewerProps> = ({ object }) => {
+	const { reducers } = useDetailStore();
 	const [is2DView, setIs2DView] = useState(Boolean(object?.speckledata));
+
+	const clearSelectedDetail = () => {
+		reducers.setSelectedDetail(null);
+	};
 
 	return object ? (
 		<div style={{ color: '#fff', display: 'flex', flexDirection: 'column', alignItems: 'left' }}>
-			{object?.speckledata ? (
-				<Switch
-					checkedChildren={'3D'}
-					unCheckedChildren={'2D'}
-					onChange={setIs2DView}
-					value={is2DView}
-					style={{ width: 50 }}
-				/>
-			) : null}
+			<div key='viewer-navbar' className='viewer-navbar'>
+				{object?.speckledata ? (
+					<Switch
+						checkedChildren={'3D'}
+						unCheckedChildren={'2D'}
+						onChange={setIs2DView}
+						value={is2DView}
+						style={{ width: 50 }}
+					/>
+				) : (
+					<div />
+				)}
+				<button onClick={clearSelectedDetail}>X</button>
+			</div>
 			<div id='speckle-viewer' className={is2DView ? 'speckle-viewer-shown' : 'speckle-viewer-empty'}>
 				{is2DView ? (
 					<SpeckleViewer
