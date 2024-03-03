@@ -1,6 +1,15 @@
 .speckle-viewer-empty {
-  height: 0px;
+  height: 25px;
   transition: all 0.3s;
+}
+
+.viewer {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  border-left: 2px solid #1a1183;
+  overflow: hidden;
 }
 
 .speckle-viewer-shown {
@@ -9,10 +18,27 @@
 }
 
 .viewer-navbar {
-  width: 560px;
+  width: 558px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
   padding: 10px;
+  background-color: white;
+  height: 30px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.viewer-navbar-title {
+  font-size: 18px;
+  font-weight: 500;
+  color: #1a1183;
+}
+
+.viewer-tab-container-content {
+  padding: 14px;
+}
+
+.viewer-tab-container {
+  height: 100%;
+  overflow: auto;
 }

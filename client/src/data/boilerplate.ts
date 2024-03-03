@@ -1,4 +1,5 @@
 import { DetailTopologyCategory } from '../enums/detailcategories';
+import { Locations } from '../enums/locations';
 import { IDetailObject } from '../types/detailobject';
 import { IDetailMetaData } from '../types/metadata';
 import { constructionDetails } from './detailnames';
@@ -19,10 +20,10 @@ export const createMetaData = (): IDetailMetaData => ({
 	acousticPerformance: 0.5,
 	globalWarmingPotential: 50,
 	voc: ['VOC1', 'VOC2'],
-	location: 'Finland',
-	cost: 1,
-	biogenicRating: 0.99,
-	populartity: 100,
+	location: Object.values(Locations)[Math.floor(Math.random() * Object.values(Locations).length)],
+	cost: (1 + Math.floor(Math.random() * 2.5)) as 1 | 2 | 3,
+	biogenicRating: Math.random() * 0.5 + 0.5,
+	populartity: Math.floor(Math.random() * 1000),
 	dateAdded: new Date()
 });
 
@@ -42,5 +43,18 @@ export const createDetail = (): IDetailObject => {
 		localDetail.speckledata = { streamID: '8cc01e745f', baseObjectID: '26b5287a21b1355384960033c3de9c53' };
 
 	return localDetail;
+};
+
+export const createDetails = (count: number): IDetailObject[] => {
+	const details: IDetailObject[] = [];
+	for (let i = 0; i < count; i++) details.push(createDetail());
+
+	// linking some of them together
+	for (let i = 0; i < details.length; i++) {
+		const linkedDetails = details.filter((_, index) => Math.random() > 0.9 && index !== i);
+		details[i].metadata.alternativeObject = linkedDetails.map((d) => d.id);
+	}
+
+	return details;
 };
 
