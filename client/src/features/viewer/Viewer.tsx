@@ -49,10 +49,7 @@ export const Viewer: React.FC<IViewerProps> = ({ object }) => {
 				)}
 				{is2DView ? (
 					<>
-						<SpeckleViewer
-							streamID={object.speckledata?.streamID as string}
-							baseObjectID={object.speckledata?.baseObjectID as string}
-						/>
+						<SpeckleViewer streamID={object?.streamId as string} baseObjectID={object?.objectId as string} />
 						<div style={{ position: 'absolute', top: 495, right: 15 }}>
 							<PDFDownloadLink document={<PdfCreator detailObject={object} />}>
 								{({ loading }) =>
@@ -75,4 +72,3 @@ export const Viewer: React.FC<IViewerProps> = ({ object }) => {
 		<div style={{ color: '#fff' }}>No object selected</div>
 	);
 };
-
