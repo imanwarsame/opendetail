@@ -21,9 +21,9 @@ export const createMetaData = (): IDetailMetaData => ({
 	globalWarmingPotential: 50,
 	voc: ['VOC1', 'VOC2'],
 	location: Object.values(Locations)[Math.floor(Math.random() * Object.values(Locations).length)],
-	cost: 1,
-	biogenicRating: 0.99,
-	populartity: 100,
+	cost: (1 + Math.floor(Math.random() * 2.5)) as 1 | 2 | 3,
+	biogenicRating: Math.random() * 0.5 + 0.5,
+	populartity: Math.floor(Math.random() * 1000),
 	dateAdded: new Date()
 });
 
