@@ -8,7 +8,7 @@ namespace OpenDetailAPI.Services
     {
         #region Properties
 
-        private readonly IMongoCollection<DetailsModel> _detailsCollection;
+        private readonly IMongoCollection<DetailObject> _detailsCollection;
 
         #endregion
 
@@ -20,23 +20,23 @@ namespace OpenDetailAPI.Services
         /// <param name="database"></param>
         public DetailsService(IMongoDatabase database)
         {
-            _detailsCollection = database.GetCollection<DetailsModel>("details");
+            _detailsCollection = database.GetCollection<DetailObject>("details");
         }
 
         #endregion
 
         #region Methods
 
-        public async Task CreateAsync(DetailsModel detail)
+        public async Task CreateAsync(DetailObject detail)
         {
             await _detailsCollection.InsertOneAsync(detail);
             return;
         }
 
-        public async Task<List<DetailsModel>> GetAsync()
+        public async Task<List<DetailObject>> GetAsync()
         {
             //return await _detailsCollection.Find(new BsonDocument()).ToListAsync();
-            List<DetailsModel> documents = await _detailsCollection.Find(_ => true).ToListAsync();
+            List<DetailObject> documents = await _detailsCollection.Find(_ => true).ToListAsync();
             return documents;
         }
 

@@ -1,7 +1,6 @@
-import React from 'react';
-
 import { Page, Text, Image, Document, StyleSheet, View } from '@react-pdf/renderer';
 import { IDetailObject } from '../../types/detailobject';
+import { base64Images } from '../../data/imageasbase64';
 
 interface Props {
 	detailObject: IDetailObject;
@@ -9,83 +8,146 @@ interface Props {
 
 const styles = StyleSheet.create({
 	page: {
+		flexDirection: 'column',
+		backgroundColor: '#FFFFFF',
+		padding: 20
+	},
+
+	mainSection: {
+		marginTop: 40,
+		margin: 10,
+		padding: 10,
+		flexGrow: 1,
+		display: 'flex',
 		flexDirection: 'row',
-		backgroundColor: '#FFFFFF'
+		alignitems: 'stretch',
+		justifyContent: 'space-around'
 	},
 
-    section: {
-        margin: 10,
-        padding: 10,
-        flexGrow: 1,
-      },
+	headerContainer: {
+		flexDirection: 'row'
+	},
 
-	header: {
+	headerLeft: {
+		width: '50%',
+		textAlign: 'left',
+		fontSize: 10
+	},
+	headerRight: {
+		width: '50%',
 		textAlign: 'right',
-		marginBottom: 10
+		fontSize: 10
 	},
-
-	footer: {
+	footerLeft: {
+		width: '50%',
 		position: 'absolute',
-		bottom: 10,
-		left: 0,
-		right: 0,
-		textAlign: 'center',
+		textAlign: 'left',
+		bottom: 20,
+		left: 20,
+		fontSize: 10
+	},
+	footerRight: {
+		width: '50%',
+		position: 'absolute',
+		textAlign: 'right',
+		bottom: 20,
+		right: 20,
 		fontSize: 10
 	},
 
-    image: {
-        width: 100,
-        height: 100,
-        marginRight: 10,
-      },
+	textContainer: {
+		margin: 10,
+		width: '20%',
+		flexDirection: 'column',
+		justifyContent: 'center',
+		alignItems: 'center'
+	},
 
-      listItem: {
-        marginBottom: 5,
-        marginRight: 5,
-      },
+	imageContainer: {
+		margin: 10,
+		width: '60%',
+		flexDirection: 'column',
+		justifyContent: 'center',
+		alignItems: 'center'
+	},
+
+	image: {
+		width: '100%'
+	},
+
+	listItem: {
+		fontSize: 12,
+		marginBottom: 5,
+		marginRight: 5
+	}
 });
 
-const pdfCreator = (props: Props) =>  (
-    
-        <Document title={props.detailObject.name} author='openDetail'>
-            <Page size='A4' orientation='landscape' style={styles.page}>
-                {/* Header */}
-                <View style={styles.section}>
-                    <Text style={styles.header}>Header Title</Text>
-                </View>
-                {/* Body */}
-                <View>
-                    <View>
-                        <Image src = {props.detailObject.keyimage}/>
-                    </View>
-                    <View>
-                            <Text>{props.detailObject.metadata.acousticPerformance}</Text>
-                            <Text>{props.detailObject.metadata.biogenicRating}</Text>
-                            <Text>{props.detailObject.metadata.cost}</Text>
-                            <Text>{props.detailObject.metadata.fireRating}</Text>
-                            <Text>{props.detailObject.metadata.globalWarmingPotential}</Text>
-                            <Text>{props.detailObject.metadata.location}</Text>
-                            <Text>{props.detailObject.metadata.globalWarmingPotential}</Text>
-                            <Text>{props.detailObject.metadata.populartity}</Text>
-                            <Text>{props.detailObject.metadata.rValue}</Text>
-                            <Text>{props.detailObject.metadata.voc}</Text>
-                    </View>
-                </View>
+const getFormattedDate = (): string => {
+	const today = new Date();
+	const year = today.getFullYear();
+	const month = String(today.getMonth() + 1).padStart(2, '0');
+	const day = String(today.getDate()).padStart(2, '0');
 
-                {/* Footer */}
-                <View style={styles.footer}>
-                    <Text>Page 1 / Example PDF</Text>
-                </View>
-            </Page>
-        </Document>
-    
+	const formattedDate = `${year}/${month}/${day}`;
+	return formattedDate;
+};
+
+export const PdfCreator = (props: Props) => (
+	<Document title={props.detailObject.name} author='openDetail'>
+		<Page size='A3' orientation='landscape' style={styles.page}>
+			<View style={styles.headerContainer}>
+				{/* Left Header */}
+				<View style={styles.headerLeft}>
+					<Text>{props.detailObject.name}</Text>
+				</View>
+
+				{/* Right Header */}
+				<View style={styles.headerRight}>
+					<Text>OpenDetails</Text>
+				</View>
+			</View>
+
+			{/* Left Footer */}
+			<View style={styles.footerLeft}>
+				<Text>{props.detailObject.topologyCategory}</Text>
+			</View>
+
+			{/* Right Footer */}
+			<View style={styles.footerRight}>
+				<Text>{getFormattedDate()}</Text>
+			</View>
+
+			{/* Body */}
+			<View style={{ marginTop: 30, marginLeft: 60 }}>
+				<Text style={{ fontSize: 30, fontWeight: 'extrabold', textAlign: 'left', margin: 10 }}>
+					{props.detailObject.name}
+				</Text>
+				<Text style={{ fontSize: 11, fontWeight: 'normal', textAlign: 'left', margin: 10 }}>
+					{props.detailObject.description}
+				</Text>
+			</View>
+
+			<View style={styles.mainSection}>
+				<View style={styles.imageContainer}>
+					<Image src={base64Images[Math.floor(Math.random() * 4)]} style={styles.image} />
+					{/* <Image src = localFolder.../>*/}
+				</View>
+				<View style={styles.textContainer}>
+					<View>
+						<Text style={styles.listItem}>Acoustic performance: {props.detailObject.metadata.acousticPerformance}</Text>
+						<Text style={styles.listItem}>Biogenic rating: {props.detailObject.metadata.biogenicRating}</Text>
+						<Text style={styles.listItem}>Cost: {props.detailObject.metadata.cost}</Text>
+						<Text style={styles.listItem}>Fire rating: {props.detailObject.metadata.fireRating}</Text>
+						<Text style={styles.listItem}>
+							Global warming potential: {props.detailObject.metadata.globalWarmingPotential}
+						</Text>
+						<Text style={styles.listItem}>Location: {props.detailObject.metadata.location}</Text>
+						<Text style={styles.listItem}>Popularity: {props.detailObject.metadata.populartity}</Text>
+						<Text style={styles.listItem}>R value: {props.detailObject.metadata.rValue}</Text>
+						<Text style={styles.listItem}>VOC: {props.detailObject.metadata.voc}</Text>
+					</View>
+				</View>
+			</View>
+		</Page>
+	</Document>
 );
-
-{
-	/* <PDFDownloadLink document = {<PDFFile/>} filename="Detail">
-          {({loading}) => (loading? <button>Loading document...</button> : <button>Download PDF</button>)}
-          
-        </PDFDownloadLink> */
-}
-
-export default pdfCreator

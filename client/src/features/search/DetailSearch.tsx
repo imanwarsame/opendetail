@@ -3,7 +3,7 @@ import './detailcard.css';
 import { useDetailStore } from '../../store';
 import { useNavigate } from 'react-router-dom';
 import { DetailSearchFilter } from './DetailSearchFilter';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { IDetailObject } from '../../types/detailobject';
 
 interface IDetailSearchProps {
@@ -12,8 +12,12 @@ interface IDetailSearchProps {
 
 export const DetailSearch: React.FC<IDetailSearchProps> = ({ style }) => {
 	const { state, reducers } = useDetailStore();
-	const [visibleObject, setVisibleObject] = useState<IDetailObject[]>(state.allDetails);
+	const [visibleObject, setVisibleObject] = useState<IDetailObject[]>([]);
 	const navigate = useNavigate();
+
+	useEffect(() => {
+		setVisibleObject(state.allDetails);
+	}, [state.allDetails]);
 
 	return (
 		<div className='detail-cards' style={style}>
@@ -31,4 +35,3 @@ export const DetailSearch: React.FC<IDetailSearchProps> = ({ style }) => {
 		</div>
 	);
 };
-

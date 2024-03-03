@@ -4,13 +4,12 @@ import { Reducers } from '../store';
 
 function isDetailObject(obj: any): obj is IDetailObject {
 	return (
-		typeof obj.id === 'string' &&
 		typeof obj.keyimage === 'string' &&
 		typeof obj.name === 'string' &&
 		typeof obj.description === 'string' &&
-		typeof obj.topologyCategory === 'string' && // Assuming DetailTopologyCategory is a string enum or type
+		typeof obj.topologyCategory === 'number' && // Assuming DetailTopologyCategory is a string enum or type
 		Array.isArray(obj.elements) &&
-		Array.isArray(obj.detailParts) &&
+		Array.isArray(obj.detailPart) &&
 		// Check additional properties as needed
 		// Add checks for other properties if necessary
 		true // Always return true if all checks passed
@@ -26,10 +25,8 @@ function isDetailObject(obj: any): obj is IDetailObject {
 export async function fetchDetails(store: Reducers) {
 	try {
 		const response = await axios.get(import.meta.env.VITE_API_HOST + 'details');
-		// console.log(response.data);
 
 		const data: IDetailObject[] = response.data.filter(isDetailObject);
-		console.log(data);
 
 		//Set only valid data to the store
 		if (data.length > 0) {

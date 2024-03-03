@@ -52,6 +52,7 @@
   left: 0;
   right: 0;
   overflow: default;
+  background-color: #f5f5f7;
 }
 
 @font-face {
