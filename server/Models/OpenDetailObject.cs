@@ -73,8 +73,8 @@ namespace OpenDetailAPI.Models
         [BsonRepresentation(BsonType.ObjectId)]
         public ObjectId? Id { get; set; }
         public string? URL { get; set; }
-        public string? streamID { get; set; }
-        public string? objectID { get; set; }
+        public string? StreamID { get; set; }
+        public string? ObjectID { get; set; }
         public string? Keyimage { get; set; }
         public string? Name { get; set; }
         public string? Description { get; set; }
@@ -82,8 +82,6 @@ namespace OpenDetailAPI.Models
         public List<ElementObject> Elements { get; set; } = new List<ElementObject>();
         public List<DetailPart> DetailPart { get; set; } = new List<DetailPart>();
         public Metadata Metadata { get; set; }
-        public List<SpeckleData> SpeckleData { get; set; } = new List<SpeckleData>();
-
 
         [BsonExtraElements()]
         public Dictionary<string, object>? ExtraElements { get; set; }
@@ -103,7 +101,6 @@ namespace OpenDetailAPI.Models
         public string? Name { get; set; }
         public string? Code { get; set; }
         public List<BuildupPart> BuildupParts { get; set; } = new List<BuildupPart>();
-        public List<DetailPart> DetailParts { get; set; } = new List<DetailPart>();
         public ElementType ElementType { get; set; }
     }
 
@@ -119,12 +116,6 @@ namespace OpenDetailAPI.Models
         public double? BiogenicRating { get; set; }
         public double? Popularity { get; set; }
         public DateTime? DateAdded { get; set; }
-    }
-
-    public class SpeckleData
-    {
-        public string? StreamID { get; set; }
-        public string? BaseObjectID { get; set; }
     }
 
     public class DetailInfo
@@ -469,6 +460,8 @@ ElementRole = ElementRole.InnerFinish
                 Elements = elements,
                 DetailPart = detailParts,
                 Metadata = metadata,
+                StreamID = "",
+                ObjectID = "",
             };
 
             return detail;
