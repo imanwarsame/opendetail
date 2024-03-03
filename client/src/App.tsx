@@ -12,10 +12,11 @@ function App() {
 			<BrowserRouter>
 				<section className='main-layout'>
 					<Navbar />
+
 					<section className='main-content'>
 						<Routes>
 							<Route element={<DetailSearch />} path='/' />
-							<Route element={<ViewerPage />} path='/projects/:projectId' />
+							<Route element={<ViewerPage />} path='/viewer/:projectId' />
 							<Route element={<CompositeSearch />} path='/compositeSearch/:projectId' />
 						</Routes>
 					</section>
