@@ -3,7 +3,7 @@ import './App.css';
 import { DetailSearch } from './features/search/DetailSearch';
 import { ViewerPage } from './features/viewer/ViewerPage';
 import React, { useEffect } from 'react';
-import { Navbar } from './features/nabvar/Navbar';
+import { Navbar } from './features/navbar/Navbar';
 import { CompositeSearch } from './features/CompositeSearch';
 import { useDetailStore } from './store';
 import { fetchDetails } from './services/DetailsService';

@@ -34,17 +34,17 @@ namespace OpenDetailAPI.Controllers
         #region Methods
 
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] DetailsModel model)
+        public async Task<IActionResult> Post([FromBody] DetailObject model)
         {
-            model._id = ObjectId.GenerateNewId();
+            model.Id = ObjectId.GenerateNewId();
             await _DBService.CreateAsync(model);
-            return CreatedAtAction(nameof(Get), new { id = model._id }, model); //Sends the HTTP response code (e.g. 201) and the object
+            return CreatedAtAction(nameof(Get), new { id = model.Id }, model); //Sends the HTTP response code (e.g. 201) and the object
         }
 
         [HttpGet]
-        public async Task<List<DetailsModel>> Get()
+        public async Task<List<DetailObject>> Get()
         {
-            List<DetailsModel> models = await _DBService.GetAsync();
+            List<DetailObject> models = await _DBService.GetAsync();
             return models;
         }
 
