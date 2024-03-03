@@ -6,7 +6,8 @@ import { IDetailObject } from '../../types/detailobject';
 import { LuFlower, LuStar, LuBanana, LuFeather, LuCloud, LuVolume2 } from 'react-icons/lu';
 import { AiOutlineFire } from 'react-icons/ai';
 import { BiWater } from 'react-icons/bi';
-
+import { CardProperty } from './card-property';
+import { Card } from 'antd';
 const { TabPane } = Tabs;
 const { Option } = Select;
 const { Title, Text } = Typography;
@@ -16,7 +17,10 @@ interface IDetailCardProps {
     onClick?: () => void;
   }
   
+  
   export const CardDetail: React.FC<IDetailCardProps> = ({ object, onClick }) => {
+    console.log(object)
+    
     return (
       <div className='flex h-screen w-[350px] flex-col bg-white'>
         <div className='flex items-center justify-between border-b p-4'>
@@ -52,6 +56,49 @@ interface IDetailCardProps {
             <Option value='other'>Other</Option>
           </Select>
         </div>
+        <div className='property-cards'>
+          <Card className='property-card'>
+            <p>
+              {object.metadata.dateAdded ? (
+                <CardProperty propertyKey="Date added" value={object.metadata.dateAdded.toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'short',
+                  day: 'numeric'
+                })} />
+              ) : null}
+            </p>
+            <p>{object.metadata.location ? (
+              <CardProperty propertyKey="Location" value={object.metadata.location as string} />
+            ) : null}</p>
+            <p>{object.metadata.popularity ? (
+              <CardProperty propertyKey="Popularity" value={object.metadata.popularity as string} />
+            ) : null}</p>
+            <p>{object.metadata.cost ? (
+              <CardProperty propertyKey="Cost [DKK]" value={object.metadata.cost as string} />
+            ) : null}</p>
+          </Card>
+          <Card className='property-card'>
+            
+            <p>{object.metadata.fireRating ? (
+              <CardProperty propertyKey="Fire rating" value={object.metadata.fireRating as string} />
+            ) : null}</p>
+            <p>{object.metadata.acousticPerformance ? (
+              <CardProperty propertyKey="Acoustic performance" value={object.metadata.acousticPerformance as string} />
+            ) : null}</p>
+          </Card>
+          <Card className='property-card'>
+          <p>{object.metadata.biogenicRating ? (
+              <CardProperty propertyKey="Biogenic rating" value={object.metadata.biogenicRating as string} />
+            ) : null}</p>
+            <p>{object.metadata.rValue ? (
+              <CardProperty propertyKey="R Value [m2K/W]" value={object.metadata.rValue as string} />
+            ) : null}</p>
+            <p>{object.metadata.globalWarmingPotential ? (
+              <CardProperty propertyKey="GWP`[kgCO2/m2]" value={object.metadata.globalWarmingPotential as string} />
+            ) : null}</p>
+          </Card>
+        </div>
+
       </div>
     );
   };
