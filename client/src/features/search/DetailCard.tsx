@@ -1,6 +1,8 @@
 import { useDetailStore } from '../../store';
 import { IDetailObject } from '../../types/detailobject';
-import { LuFlower, LuStar, LuBanana } from 'react-icons/lu';
+import { LuFlower, LuStar, LuBanana, LuFeather, LuCloud, LuVolume2 } from 'react-icons/lu';
+import { AiOutlineFire } from 'react-icons/ai';
+import { BiWater } from 'react-icons/bi';
 
 interface IDetailCardProps {
 	object: IDetailObject;
@@ -18,6 +20,23 @@ export const DetailCard: React.FC<IDetailCardProps> = ({ object, onClick }) => {
 		>
 			<div className='detail-card-img'>
 				<img src={object.keyimage} />
+				<div className='detail-card-img icons'>
+					<div className='detail-card-icon'>
+						<LuFeather size={12} style={{ color: 'black', transform: 'translate(3px,-2px)' }} />
+					</div>
+					<div className='detail-card-icon' style={{ left: 15 }}>
+						<LuCloud size={12} style={{ color: 'black', transform: 'translate(3px,-2px)' }} />
+					</div>
+					<div className='detail-card-icon' style={{ left: 30 }}>
+						<LuVolume2 size={12} style={{ color: 'black', transform: 'translate(3px,-2px)' }} />
+					</div>
+					<div className='detail-card-icon' style={{ left: 45 }}>
+						<AiOutlineFire size={12} style={{ color: 'black', transform: 'translate(3px,-2px)' }} />
+					</div>
+					<div className='detail-card-icon' style={{ left: 60 }}>
+						<BiWater size={12} style={{ color: 'black', transform: 'translate(3px,-2px)' }} />
+					</div>
+				</div>
 			</div>
 			<span className='detail-card-inset-title'>{object.id}</span>
 			<div className='detail-card-title'>{object.name}</div>

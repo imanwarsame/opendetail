@@ -16,6 +16,7 @@
   padding: 15px;
   border: 1px solid #8a8a8a;
   text-align: left;
+  cursor: pointer;
 }
 
 .detail-card:hover {
@@ -37,9 +38,28 @@
 }
 
 .detail-card-img {
+  position: relative;
   width: 188px;
   height: 122px;
   border-radius: 4px;
+}
+
+.detail-card-img.icons {
+  position: absolute;
+  left: 5px;
+  bottom: -95px;
+  width: 188px;
+  height: 122px;
+  border-radius: 4px;
+}
+
+.detail-card-icon {
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  border-radius: 11px;
+  background-color: #fff;
+  border: 2px solid #615aba;
 }
 
 .detail-card-inset-title {
