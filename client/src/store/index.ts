@@ -13,7 +13,7 @@ export interface State {
 export interface Reducers {
 	setSelectedDetail: (p: string | null) => void;
 	setUserRole: (r: UserRole) => void;
-	allDetails: (details: IDetailObject[]) => void;
+	setDetails: (details: IDetailObject[]) => void;
 }
 
 export const useDetailStore = create(
@@ -38,7 +38,7 @@ export const useDetailStore = create(
 					store.state.userRole = r;
 				});
 			},
-			allDetails: (details: IDetailObject[]) => {
+			setDetails: (details: IDetailObject[]) => {
 				set((store) => {
 					store.state.allDetails = details;
 				});
@@ -48,4 +48,3 @@ export const useDetailStore = create(
 		return { state, reducers };
 	})
 );
-

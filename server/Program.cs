@@ -27,6 +27,9 @@ builder.Services.AddScoped(provider =>
 
 WebApplication app = builder.Build();
 
+//Enables CORS to allow requests to be made from another domain (a.k.a. the front end)
+app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
