@@ -1,0 +1,9 @@
+.speckle-viewer-empty {
+  height: 0px;
+  transition: all 0.3s;
+}
+
+.speckle-viewer-shown {
+  height: 500px;
+  transition: all 0.3s;
+}
