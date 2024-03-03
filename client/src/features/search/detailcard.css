@@ -97,3 +97,17 @@
   margin-left: 7px;
   font-weight: 400;
 }
+
+.detail-search-filter {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.detail-search-filter-search {
+  width: 200px;
+}

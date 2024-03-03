@@ -1,5 +1,6 @@
+import { useEffect, useState } from 'react';
 import { IDetailObject } from '../../types/detailobject';
-import { Input } from 'antd';
+import { Dropdown, Input, Select } from 'antd';
 const { Search } = Input;
 
 interface IDetailSearchFilterProps {
@@ -8,11 +9,39 @@ interface IDetailSearchFilterProps {
 }
 
 export const DetailSearchFilter: React.FC<IDetailSearchFilterProps> = ({ objects, onFilter }) => {
-	const onSearchFilter = (value: string) => {
-		const filteredObjects = objects.filter((object) => object.name.toLowerCase().includes(value.toLowerCase()));
-		onFilter(filteredObjects);
+	const [searchString, setSearchString] = useState<string | undefined>(undefined);
+	const [location, setLocation] = useState<string | undefined>(undefined);
+
+	const onSearchFilter = (objects: IDetailObject[], value: string | undefined) => {
+		if (!value) return objects;
+
+		return objects.filter((object) => JSON.stringify(object).toLowerCase().includes(value.toLowerCase()));
 	};
 
-	return <Search onChange={(e) => e && onSearchFilter(e.target.value)} />;
+	const filterLocation = (objects: IDetailObject[], value: string | undefined) => {
+		if (!value) return objects;
+
+		return objects.filter((object) => object.metadata.location.toLowerCase() === value.toLowerCase());
+	};
+
+	useEffect(() => {
+		let filteredObjects = objects;
+
+		filteredObjects = onSearchFilter(filteredObjects, searchString);
+		filteredObjects = filterLocation(filteredObjects, location);
+
+		onFilter(filteredObjects);
+	}, [searchString]);
+
+	return (
+		<div className='detail-search-filter'>
+			<Search
+				className='detail-search-filter-search'
+				onChange={(e) => setSearchString(e.target.value)}
+				value={searchString}
+			/>
+			<Select />
+		</div>
+	);
 };
 
