@@ -33,8 +33,11 @@ export const createDetail = (): IDetailObject => {
 		description: 'Lorum Ipsum Dolor Sit Amet',
 		topologyCategory: DetailTopologyCategory.Point,
 		elements: [],
-		metadata: createMetaData()
+		metadata: createMetaData(),
+		detailParts: []
 	};
+
+	if (Math.random() > 0.5) localDetail.speckledata = { streamID: getRandomUUID(), baseObjectID: localDetail.id };
 
 	return localDetail;
 };
