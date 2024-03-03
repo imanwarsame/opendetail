@@ -12,7 +12,7 @@ export enum MaterialCategory{
     Paints = "Paints, varnishes and lacquers",
 }
 
-export enum MineralBindingProductsSecondaryCategory{
+export enum MineralBuildingProductsSecondaryCategory{
   Binder = "Binder",
   ConcreteAggregates = "Concrete aggregates",
   BricksBlocksAndElements = "Bricks, blocks and elements",
