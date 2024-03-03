@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import { immer } from 'zustand/middleware/immer';
 import { UserRole } from '../enums/userroles';
 import { IDetailObject } from '../types/detailobject';
-import { createDetail } from '../data/boilerplate';
+import { createDetails } from '../data/boilerplate';
 
 export interface State {
 	selectedDetail: string | null;
@@ -24,7 +24,7 @@ export const useDetailStore = create(
 		const state: State = {
 			selectedDetail: null,
 			userRole: UserRole.Admin,
-			allDetails: [...Array(20)].map(() => createDetail())
+			allDetails: createDetails(20)
 		};
 
 		const reducers: Reducers = {
