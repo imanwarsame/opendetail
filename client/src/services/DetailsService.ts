@@ -25,10 +25,8 @@ function isDetailObject(obj: any): obj is IDetailObject {
 export async function fetchDetails(store: Reducers) {
 	try {
 		const response = await axios.get(import.meta.env.VITE_API_HOST + 'details');
-		console.log(response.data);
 
 		const data: IDetailObject[] = response.data.filter(isDetailObject);
-		console.log(data);
 
 		//Set only valid data to the store
 		if (data.length > 0) {

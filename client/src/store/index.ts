@@ -24,7 +24,7 @@ export const useDetailStore = create(
 		const state: State = {
 			selectedDetail: null,
 			userRole: UserRole.Admin,
-			allDetails: [...Array(20)].map(() => createDetail())
+			allDetails: []
 		};
 
 		const reducers: Reducers = {

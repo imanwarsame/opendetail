@@ -30,6 +30,8 @@ export const DetailSearchFilter: React.FC<IDetailSearchFilterProps> = ({ objects
 		filteredObjects = onSearchFilter(filteredObjects, searchString);
 		filteredObjects = filterLocation(filteredObjects, location);
 
+		console.log(filteredObjects);
+
 		onFilter(filteredObjects);
 	}, [searchString]);
 
@@ -44,4 +46,3 @@ export const DetailSearchFilter: React.FC<IDetailSearchFilterProps> = ({ objects
 		</div>
 	);
 };
-
