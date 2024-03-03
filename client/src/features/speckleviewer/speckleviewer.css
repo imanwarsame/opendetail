@@ -1,7 +1,6 @@
 .speckle-viewer {
-  border: 1px solid green;
   height: 500px;
-  width: 578px;
+  width: 580px;
   overflow: hidden;
   transition: all 0.3s;
 }
