@@ -47,11 +47,11 @@ export const DetailCard: React.FC<IDetailCardProps> = ({ object, onClick }) => {
 				</div>
 				<div key='enviroment' className='detail-card-quantities-subobject'>
 					<LuFlower />
-					<span>{object.metadata.biogenicRating}</span>
+					<span>{object.metadata.biogenicRating?.toPrecision(2)}</span>
 				</div>
 				<div key='enviroment' className='detail-card-quantities-subobject'>
 					<LuBanana />
-					<span>{100}</span>
+					<span>{`${Math.round((object.metadata ? Object.keys(object.metadata).length / 10 : 0) * 100)} %`}</span>
 				</div>
 			</div>
 		</div>
