@@ -37,11 +37,11 @@ namespace OpenDetailAPI.Models
         /// </summary>
         public string? Author { get; set; }
 
-        ///// <summary>
-        ///// Metadata
-        ///// </summary>
-        //[BsonExtraElements]
-        //public Dictionary<string, object> Metadata { get; set; } = new Dictionary<string, object>();
+        /// <summary>
+        /// Metadata
+        /// </summary>
+        [BsonExtraElements]
+        public Dictionary<string, object> Metadata { get; set; } = new Dictionary<string, object>();
 
         #endregion
     }
