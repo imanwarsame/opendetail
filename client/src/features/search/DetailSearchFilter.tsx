@@ -69,7 +69,7 @@ export const DetailSearchFilter: React.FC<IDetailSearchFilterProps> = ({ objects
 					{ label: '€€', value: 2 },
 					{ label: '€€€', value: 3 }
 				]}
-				defaultValue={'Sort by'}
+				defaultValue={'Cost'}
 				onChange={(value) => setCost(value ? (Number(value) as 1 | 2 | 3) : undefined)}
 				allowClear
 				onClear={() => setCost(undefined)}
