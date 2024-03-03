@@ -23,8 +23,6 @@ export const Viewer: React.FC<IViewerProps> = ({ object }) => {
 		reducers.setSelectedDetail(null);
 	};
 
-	console.log(is2DView);
-
 	useEffect(() => {
 		setIs2DView(Boolean(object?.streamID !== null));
 	}, [object]);

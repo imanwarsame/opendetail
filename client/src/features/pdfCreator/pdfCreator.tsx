@@ -1,5 +1,6 @@
 import { Page, Text, Image, Document, StyleSheet, View } from '@react-pdf/renderer';
 import { IDetailObject } from '../../types/detailobject';
+import { base64Images } from '../../data/imageasbase64';
 
 interface Props {
 	detailObject: IDetailObject;
@@ -128,7 +129,7 @@ export const PdfCreator = (props: Props) => (
 
 			<View style={styles.mainSection}>
 				<View style={styles.imageContainer}>
-					<Image src={props.detailObject.keyimage} style={styles.image} />
+					<Image src={base64Images[Math.floor(Math.random() * 4)]} style={styles.image} />
 					{/* <Image src = localFolder.../>*/}
 				</View>
 				<View style={styles.textContainer}>
@@ -150,4 +151,3 @@ export const PdfCreator = (props: Props) => (
 		</Page>
 	</Document>
 );
-

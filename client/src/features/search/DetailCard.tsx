@@ -3,6 +3,7 @@ import { IDetailObject } from '../../types/detailobject';
 import { LuFlower, LuStar, LuBanana, LuFeather, LuCloud, LuVolume2 } from 'react-icons/lu';
 import { AiOutlineFire } from 'react-icons/ai';
 import { BiWater } from 'react-icons/bi';
+import { base64Images } from '../../data/imageasbase64';
 
 interface IDetailCardProps {
 	object: IDetailObject;
@@ -19,7 +20,7 @@ export const DetailCard: React.FC<IDetailCardProps> = ({ object, onClick }) => {
 			onClick={onClick}
 		>
 			<div className='detail-card-img'>
-				<img src={object.keyimage} />
+				<img src={base64Images[Math.floor(Math.random() * 4)]} />
 				<div className='detail-card-img icons'>
 					<div className='detail-card-icon'>
 						<LuFeather size={12} style={{ color: 'black', transform: 'translate(3px,-2px)' }} />
@@ -57,4 +58,3 @@ export const DetailCard: React.FC<IDetailCardProps> = ({ object, onClick }) => {
 		</div>
 	);
 };
-
