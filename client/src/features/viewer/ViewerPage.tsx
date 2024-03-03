@@ -11,7 +11,7 @@ export const ViewerPage = () => {
 	return (
 		<>
 			<Viewer object={createDetail()} />
-			<SpeckleViewer streamID='8cc01e745f' baseObjectID='26b5287a21b1355384960033c3de9c53' />
+			<SpeckleViewer streamID='3437f8cf7b' baseObjectID='7d53bcf28c6696ecac8781684a0aa006' />
 		</>
 	);
 };
