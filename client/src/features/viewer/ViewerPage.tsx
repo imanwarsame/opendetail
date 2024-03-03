@@ -5,6 +5,8 @@ import { Viewer } from './Viewer';
 export const ViewerPage = () => {
 	const { projectId } = useParams();
 
+	console.log(projectId);
+
 	return <Viewer object={createDetail()} />;
 };
 

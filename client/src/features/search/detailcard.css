@@ -1,7 +1,6 @@
 .detail-cards {
   display: flex;
-
-  flex-direction: row;
+  justify-content: start;
   flex-wrap: wrap;
   margin-top: 1rem;
   gap: 1em;
@@ -9,13 +8,14 @@
 
 .detail-card {
   position: relative;
-  width: 188px;
-  height: 248px;
+  width: 248px;
+  height: 328px;
   border-radius: 8px;
   background-color: #fff;
   padding: 15px;
   border: 1px solid #8a8a8a;
   text-align: left;
+  cursor: pointer;
 }
 
 .detail-card:hover {
@@ -31,15 +31,34 @@
 }
 
 .detail-card img {
-  width: 188px;
-  height: 122px;
+  width: 228px;
+  height: 162px;
   object-fit: cover;
 }
 
 .detail-card-img {
+  position: relative;
+  width: 228px;
+  height: 162px;
+  border-radius: 4px;
+}
+
+.detail-card-img.icons {
+  position: absolute;
+  left: 5px;
+  bottom: -95px;
   width: 188px;
   height: 122px;
   border-radius: 4px;
+}
+
+.detail-card-icon {
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  border-radius: 11px;
+  background-color: #fff;
+  border: 2px solid #615aba;
 }
 
 .detail-card-inset-title {
@@ -76,4 +95,23 @@
 .detail-card-quantities-subobject span {
   margin-left: 7px;
   font-weight: 400;
+}
+
+.detail-search-filter {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  flex-direction: row;
+  align-items: start;
+  justify-content: start;
+  margin-bottom: 1rem;
+  gap: 0.5rem;
+}
+
+.detail-search-filter-search {
+  width: 200px;
+}
+
+.detail-search-filter-select {
+  width: 120px;
 }

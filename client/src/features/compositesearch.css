@@ -27,12 +27,14 @@
   transition: all 0.5s;
   height: 100%;
   overflow: auto;
+  margin: 0;
 }
 
 .composite-search.viewer {
   position: absolute;
   right: 0;
   width: 580px;
+  padding: 0;
   background-color: #ffffff33;
 }
 
@@ -47,10 +49,11 @@
 .composite-search.search {
   position: absolute;
   left: 0;
+  margin: 0;
 }
 
 .composite-search.search.show {
-  width: calc(100vw - 580px);
+  width: calc(100vw - 580px - 32px);
 }
 
 .composite-search.search.hide {
