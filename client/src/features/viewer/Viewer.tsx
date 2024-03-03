@@ -17,14 +17,16 @@ interface IViewerProps {
 
 export const Viewer: React.FC<IViewerProps> = ({ object }) => {
 	const { reducers } = useDetailStore();
-	const [is2DView, setIs2DView] = useState(Boolean(object?.speckledata));
+	const [is2DView, setIs2DView] = useState(Boolean(object?.streamID !== null));
 
 	const clearSelectedDetail = () => {
 		reducers.setSelectedDetail(null);
 	};
 
+	console.log(is2DView);
+
 	useEffect(() => {
-		setIs2DView(Boolean(object?.speckledata));
+		setIs2DView(Boolean(object?.streamID !== null));
 	}, [object]);
 
 	return object ? (
@@ -49,7 +51,7 @@ export const Viewer: React.FC<IViewerProps> = ({ object }) => {
 				)}
 				{is2DView ? (
 					<>
-						<SpeckleViewer streamID={object?.streamId as string} baseObjectID={object?.objectId as string} />
+						<SpeckleViewer streamID={object?.streamID as string} baseObjectID={object?.objectID as string} />
 						<div style={{ position: 'absolute', top: 495, right: 15 }}>
 							<PDFDownloadLink document={<PdfCreator detailObject={object} />}>
 								{({ loading }) =>

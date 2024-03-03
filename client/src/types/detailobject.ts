@@ -5,8 +5,8 @@ import { IDetailMetaData } from './metadata';
 
 export interface IDetailObject {
 	id: string; // GUID
-	streamId: string;
-	objectId: string;
+	streamID: string;
+	objectID: string;
 	keyimage: string;
 	name: string; // human readable name
 	description: string; // free description
